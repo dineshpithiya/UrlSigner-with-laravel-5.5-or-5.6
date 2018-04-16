@@ -17,7 +17,7 @@ UrlSigner::validate('https://app.com/protected-route?expires=xxxxxx&signature=xx
 ```
 The package also provides a middleware to protect routes.
 
-Installation
+##Installation
 As you would have guessed the package can be installed via Composer:
 
 ```
@@ -37,7 +37,7 @@ In Laravel 5.5 the service provider and facade will automatically get registered
     'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
 ];
 ```
-Configuration
+##Configuration
 The configuration file can optionally be published via:
 ```
 php artisan vendor:publish --provider="Spatie\UrlSigner\Laravel\UrlSignerServiceProvider"
@@ -67,8 +67,8 @@ return [
 
 ];
 ```
-Usage
-Signing URLs
+##Usage
+###Signing URLs
 URL's can be signed with the sign-method:
 ```
 UrlSigner::sign('https://myapp.com/protected-route');
@@ -85,12 +85,12 @@ For fine grained control, you may also pass a DateTime instance as the second pa
 ```
 UrlSigner::sign('https://myapp.com/protected-route', Carbon\Carbon::now()->addHours(2) );
 ```
-Validating URLs
+###Validating URLs
 To validate a signed URL, simply call the validate()-method. This return a boolean.
 ```
 UrlSigner::validate('https://app.com/protected-route?expires=xxxxxx&signature=xxxxxx');
 ```
-Protecting routes with middleware
+###Protecting routes with middleware
 The package also provides a middleware to protect routes:
 ```
 Route::get('protected-route', ['middleware' => 'signedurl', function () {
@@ -102,28 +102,28 @@ Your app will abort with a 403 status code if the route is called without a vali
 Changelog
 Please see CHANGELOG for more information what has changed recently.
 
-Testing
+###Testing
 ```
 $ vendor/bin/phpunit
 ```
-Usage outside Laravel
-If you're working on a non-Laravel project, you can use the framework agnostic version.
+###Usage outside Laravel
+If you're working on a non-Laravel project, you can use the framework agnostic version.[link] (https://github.com/spatie/url-signer)
 
-Similar libraries
+###Similar libraries
 If you need signed url's for CloudFront, consider dreamonkey's package, which is based on this library.
 
-Contributing
+###Contributing
 Please see CONTRIBUTING for details.
 
-Security
+###Security
 If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
 
-Postcardware
+###Postcardware
 You're free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
 
 Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 
 We publish all received postcards on our company website.
 
-Credits
+##Credits
 [Rajesh bamrotiya](https://github.com/rajbamrotiya)
